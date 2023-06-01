@@ -1,0 +1,15 @@
+---
+
+- name: Add MongoDB repository
+  yum_repository:
+    name: mongodb-org
+    description: MongoDB Repository
+    baseurl: "{{ repo_rh }}"
+    gpgcheck: yes
+    gpgkey: "{{ key_rh }}"
+
+- name: Install MongoDB packages
+  package:
+    name: mongodb-org
+    state: present
+  notify: restart mongod

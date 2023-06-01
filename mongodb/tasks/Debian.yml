@@ -1,0 +1,35 @@
+--- # Installing MongoDb in Debian
+- name: update and add gnupg
+  package:
+      update_cache: true
+      name: gnupg
+      
+- name : Adding MongoDB public key
+  apt_key:
+    url: "{{ key_db }}"
+    keyring: "{{ key_ring }}"
+     
+
+- name: Adding MongoDB repository
+  apt_repository:
+      repo: "{{ repo_db }}"
+      #repo: "deb https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/6.0 multiverse"
+      #repo: "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/6.0 multiverse"
+      state: present
+      
+- name: Install the MongoDB packages
+  package:
+    name: mongodb-org
+    state: latest
+  notify:
+     restart mongodb
+
+- name: Start the MongoDB service
+  service:
+    name: mongod
+    state: started
+    enabled: yes
+
+...
+
+  

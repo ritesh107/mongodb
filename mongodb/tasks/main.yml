@@ -1,0 +1,14 @@
+---
+# tasks file for mongodb
+
+- name: Installation in Debian os family
+  include: "{{ansible_os_family}}.yml"
+  when: ansible_os_family == "Debian"
+
+- name: Installation in Redhat os family    
+  include: "{{ansible_os_family}}.yml"
+  when: ansible_os_family == "RedHat"
+
+  
+
+    

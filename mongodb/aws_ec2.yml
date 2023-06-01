@@ -1,0 +1,13 @@
+---
+plugin: aws_ec2
+
+regions: 
+     - ap-south-1
+
+filter:
+    tag:Name:
+        - 'mongodb'
+        
+
+compose:    
+    ansible_host: public_ip_address
