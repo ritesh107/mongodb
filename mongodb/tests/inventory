@@ -1,4 +1,4 @@
 [web]
-web01 ansible_user=ubuntu ansible_host=65.2.126.194
+web01 ansible_user=ubuntu ansible_host=13.234.225.88
 
 
