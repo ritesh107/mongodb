@@ -6,7 +6,7 @@ regions:
 
 filter:
     tag:Name:
-        - 'mongodb'
+        - 'testing'
         
 
 compose:    
